@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block body %}
+<!-- {% block title %}update{% endblock title %} -->  
+<form method="POST" class="post-form" action="/update/{{todo.id}}">  
+    {% csrf_token %}  
+<div class="container">  
+<br>  
+<div class="form-group row">  
+<label class="col-sm-1 col-form-label"></label>  
+<div class="col-sm-4">  
+<h3>Update todo</h3>  
+</div>  
+</div>  
+<div class="form-group row">  
+<label class="col-sm-2 col-form-label">title:</label>  
+<div class="col-sm-4">  
+    <input type="text" name="title" id="title" required maxlength="20" value="{{todo.title}}"/>  
+</div>  
+</div>  
+<div class="form-group row">  
+<label class="col-sm-2 col-form-label">description:</label>  
+<div class="col-sm-4">  
+    <input type="text" name="desc" id="desc" required maxlength="100" value="{{todo.desc}}" />  
+</div>  
+</div>  
+    <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">priority:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="desc" id="desc" required maxlength="100" value="{{todo.priority}}" />  
+        </div>  
+        </div>  
+<div class="form-group row">  
+<label class="col-sm-1 col-form-label"></label>  
+<div class="col-sm-4">  
+<button type="submit" class="btn btn-success">Update</button>  
+</div>  
+</div>  
+</div>  
+</form>  
+{% endblock body %}

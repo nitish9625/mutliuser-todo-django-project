@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h1>registeration page</h1>
+            <form action="/register/" method="POST">{% csrf_token %}
+                <div class="mb-3">
+                    <label for="fname" class="form-label">first name</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name"
+                        placeholder="your first name">
+                </div>
+                <div class="mb-3">
+                    <label for="lname" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name"
+                        placeholder="your last name name">
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="your username">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="abd@gmail.com">
+                </div>
+                <div class="mb-3">
+                    <label for="passowrd1" class="form-label">password</label>
+                    <input type="password" class="form-control" id="password1" name="password1" placeholder="password">
+                </div>
+                <div class="mb-3">
+                    <label for="password2" class="form-label">confirm password</label>
+                    <input type="password" class="form-control" id="password2" name="password2"
+                        placeholder="confirm password">
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary btn-small">register</button>
+                </div>
+        </div>
+        </form>
+        <div class="message">
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
+        </div>
+       
+    </div>
+</div>
+{% endblock body %}
